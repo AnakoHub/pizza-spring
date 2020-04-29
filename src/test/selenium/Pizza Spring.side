@@ -132,7 +132,7 @@
     }, {
       "id": "6d5c10e7-bb6c-42bb-b736-2a464237ca49",
       "comment": "",
-      "command": "//assertElementPresent",
+      "command": "assertElementPresent",
       "target": "id=pizzaId.errors",
       "targets": [],
       "value": ""
@@ -146,18 +146,6 @@
       "command": "open",
       "target": "http://localhost:8080/pizza-spring",
       "targets": [],
-      "value": ""
-    }, {
-      "id": "aa0d069e-8d20-477e-9fa4-33206ee15434",
-      "comment": "",
-      "command": "click",
-      "target": "id=accueil",
-      "targets": [
-        ["id=accueil", "id"],
-        ["css=html", "css:finder"],
-        ["xpath=//html[@id='accueil']", "xpath:attributes"],
-        ["xpath=//html", "xpath:position"]
-      ],
       "value": ""
     }, {
       "id": "3011972d-3573-4677-9079-060df270ba5e",
@@ -211,7 +199,7 @@
     }, {
       "id": "7ce05bce-40e5-479b-8c8d-5cb956c1b2e6",
       "comment": "",
-      "command": "//assertElementPresent",
+      "command": "assertElementPresent",
       "target": "id=telephone.errors",
       "targets": [],
       "value": ""
