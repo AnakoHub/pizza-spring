@@ -88,13 +88,6 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "4a05b254-a204-4c50-9fbb-a7fd98e03979",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1354x745",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "89f37cea-7e67-4b96-970e-500101b58319",
       "comment": "",
       "command": "click",
@@ -155,13 +148,6 @@
       "targets": [],
       "value": ""
     }, {
-      "id": "b1928b1d-933a-4895-ae93-04a1080b1b84",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1354x745",
-      "targets": [],
-      "value": ""
-    }, {
       "id": "aa0d069e-8d20-477e-9fa4-33206ee15434",
       "comment": "",
       "command": "click",
@@ -203,32 +189,11 @@
       ],
       "value": "label=Orientale"
     }, {
-      "id": "1f8db86d-a231-4967-9b1b-b4c15b575eea",
-      "comment": "",
-      "command": "click",
-      "target": "id=nom",
-      "targets": [
-        ["id=nom", "id"],
-        ["name=nom", "name"],
-        ["css=#nom", "css:finder"],
-        ["xpath=//input[@id='nom']", "xpath:attributes"],
-        ["xpath=//form[@id='commandeDto']/div[2]/input", "xpath:idRelative"],
-        ["xpath=//div[2]/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
       "id": "cfb75bbb-7d35-411e-8c1f-1f16ec491d01",
       "comment": "",
-      "command": "type",
+      "command": "sendKeys",
       "target": "id=nom",
-      "targets": [
-        ["id=nom", "id"],
-        ["name=nom", "name"],
-        ["css=#nom", "css:finder"],
-        ["xpath=//input[@id='nom']", "xpath:attributes"],
-        ["xpath=//form[@id='commandeDto']/div[2]/input", "xpath:idRelative"],
-        ["xpath=//div[2]/input", "xpath:position"]
-      ],
+      "targets": [],
       "value": "Sans numéro de tel"
     }, {
       "id": "c5dc2f1a-dd94-49d7-8da8-9d2276eb7fe7",
