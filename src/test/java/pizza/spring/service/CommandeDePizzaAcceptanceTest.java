@@ -3,9 +3,11 @@ package pizza.spring.service;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class CommandeDePizzaAcceptanceTest {
 
@@ -22,13 +24,26 @@ public class CommandeDePizzaAcceptanceTest {
 	}
 
 	@Test
-	public void anOrderIsPlacedForAPizzaTheFormIsFilledIn() throws Exception {
+	public void anOrderIsPlacedForAPizzaWhenTheFormIsFilledIn() throws Exception {
 		webDriver.navigate().to("http://localhost:8080/pizza-spring/");
-		WebElement commanderPageButton = WebDriver.
+		
+		WebElement commandPageButton = webDriver.findElement(By.partialLinkText("http://localhost:8080/pizza-spring/commande"));
+		commandPageButton.click();
+		
+		WebElement listPizza = webDriver.findElement(By.id("pizzaId"));
+		WebElement pizzaName = listPizza.findElement(By.tagName("option"));
+		WebElement pizzaSelection = pizzaName.findElement(By.name("Orientale"));
+		
+		WebElement nameInput = webDriver.findElement(By.id("nom"));
+		WebElement telephoneInput = webDriver.findElement(By.id("telephone"));
+		WebElement commandButton = webDriver.findElement(By.id(""));
+		nameInput.sendKeys("Test java 1");
+		telephoneInput.sendKeys("06060606");
+		commandButton.click();
 	}
 
-	@Test
-	public void anErrorMessageIsDisplayedWhenNoPizzaIsSelectionedInDuringTheOrder() throws Exception {
-		webDriver.navigate().to("http://localhost:8080/pizza-spring/");
-	}
+//	@Test
+//	public void anErrorMessageIsDisplayedWhenNoPizzaIsSelectionedInDuringTheOrder() throws Exception {
+//		webDriver.navigate().to("http://localhost:8080/pizza-spring/");
+//	}
 }
