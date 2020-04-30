@@ -1,5 +1,7 @@
 package pizza.spring.service;
 
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +29,8 @@ public class CommandeDePizzaAcceptanceTest {
 	public void anOrderIsPlacedForAPizzaWhenTheFormIsFilledIn() throws Exception {
 		webDriver.navigate().to("http://localhost:8080/pizza-spring/");
 		
-		WebElement commandPageButton = webDriver.findElement(By.partialLinkText("http://localhost:8080/pizza-spring/commande"));
+		List<WebElement> navbarLinks = webDriver.findElements(By.id("menu"));
+		WebElement commandPageButton = aNav.findElement(By.partialLinkText("http://localhost:8080/pizza-spring/commande"));
 		commandPageButton.click();
 		
 		WebElement listPizza = webDriver.findElement(By.id("pizzaId"));
