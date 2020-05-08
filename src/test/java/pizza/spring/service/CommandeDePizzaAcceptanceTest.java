@@ -1,5 +1,7 @@
 package pizza.spring.service;
 
+import static org.junit.Assert.assertTrue;
+
 import java.time.Duration;
 import java.util.List;
 
@@ -34,13 +36,14 @@ public class CommandeDePizzaAcceptanceTest {
 		webDriver.navigate().to("http://localhost:8080/pizza-spring/");
 		
 		//Find the right element from the navbar and click on it
-		List<WebElement> navbarLinks = webDriver.findElements(By.id("menu"));
-		for (WebElement x : navbarLinks) {
-			if(webDriver.findElement(By.xpath("//a[contains(text(), 'Commander')]")).isDisplayed()) {
-				x.click();
-				webDriver.navigate().to("http://localhost:8080/pizza-spring/commande");
-			}
-		}
+//		List<WebElement> navbarLinks = webDriver.findElements(By.id("menu"));
+//		for (WebElement x : navbarLinks) {
+//			if(webDriver.findElement(By.xpath("//a[contains(text(), 'Commander')]")).isDisplayed()) {
+//				webDriver.findElement(By.xpath("//a[contains(text(), 'Commander')]")).click();
+//			}
+//		}
+		WebElement commandNav = webDriver.findElement(By.xpath("//a[contains(text(), 'Commander')]"));
+		commandNav.click();
 		
 		//Find an element from the SELECT menu and select it
 		Select pizza = new Select(webDriver.findElement(By.id("pizzaId")));
@@ -54,6 +57,7 @@ public class CommandeDePizzaAcceptanceTest {
 		telephoneInput.sendKeys("06060606");
 		commandButton.click();
 		
+		assertTrue(webDriver.getCurrentUrl().contains("/pizza-spring/recap-commande"));
 	}
 
 	@Test
@@ -62,13 +66,8 @@ public class CommandeDePizzaAcceptanceTest {
 		webDriver.navigate().to("http://localhost:8080/pizza-spring/");
 		
 		//Find the right element from the navbar and click on it
-		List<WebElement> navbarLinks = webDriver.findElements(By.id("menu"));
-		for (WebElement x : navbarLinks) {
-			if(webDriver.findElement(By.xpath("//a[contains(text(), 'Commander')]")).isDisplayed()) {
-				x.click();
-				webDriver.navigate().to("http://localhost:8080/pizza-spring/commande");
-			}
-		}
+		WebElement commandNav = webDriver.findElement(By.xpath("//a[contains(text(), 'Commander')]"));
+		commandNav.click();
 		
 		//Find the nom, and telephone field and fill them, then click on the commander button
 		WebElement nameInput = webDriver.findElement(By.id("nom"));
@@ -77,6 +76,8 @@ public class CommandeDePizzaAcceptanceTest {
 		nameInput.sendKeys("Test java 2");
 		telephoneInput.sendKeys("06060606");
 		commandButton.click();
+		
+		assertTrue(webDriver.findElement(By.id("pizzaId.errors")).isDisplayed());
 	}
 	
 	@Test
@@ -85,13 +86,8 @@ public class CommandeDePizzaAcceptanceTest {
 		webDriver.navigate().to("http://localhost:8080/pizza-spring/");
 		
 		//Find the right element from the navbar and click on it
-		List<WebElement> navbarLinks = webDriver.findElements(By.id("menu"));
-		for (WebElement x : navbarLinks) {
-			if(webDriver.findElement(By.xpath("//a[contains(text(), 'Commander')]")).isDisplayed()) {
-				x.click();
-				webDriver.navigate().to("http://localhost:8080/pizza-spring/commande");
-			}
-		}
+		WebElement commandNav = webDriver.findElement(By.xpath("//a[contains(text(), 'Commander')]"));
+		commandNav.click();
 		
 		//Find the nom, and telephone field and fill them, then click on the commander button
 		WebElement nameInput = webDriver.findElement(By.id("nom"));
@@ -100,5 +96,7 @@ public class CommandeDePizzaAcceptanceTest {
 		nameInput.sendKeys("Test java 3");
 		telephoneInput.sendKeys("06060606");
 		commandButton.click();
+		
+		assertTrue(webDriver.findElement(By.id("telephone.errors")).isDisplayed());
 	}
 }
