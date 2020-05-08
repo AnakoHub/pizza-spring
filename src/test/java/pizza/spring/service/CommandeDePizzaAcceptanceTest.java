@@ -89,12 +89,14 @@ public class CommandeDePizzaAcceptanceTest {
 		WebElement commandNav = webDriver.findElement(By.xpath("//a[contains(text(), 'Commander')]"));
 		commandNav.click();
 		
+		//Find an element from the SELECT menu and select it
+		Select pizza = new Select(webDriver.findElement(By.id("pizzaId")));
+		pizza.selectByIndex(0);
 		//Find the nom, and telephone field and fill them, then click on the commander button
 		WebElement nameInput = webDriver.findElement(By.id("nom"));
 		WebElement telephoneInput = webDriver.findElement(By.id("telephone"));
 		WebElement commandButton = webDriver.findElement(By.xpath("//button[contains(text(),'Commander')]"));
 		nameInput.sendKeys("Test java 3");
-		telephoneInput.sendKeys("06060606");
 		commandButton.click();
 		
 		assertTrue(webDriver.findElement(By.id("telephone.errors")).isDisplayed());
