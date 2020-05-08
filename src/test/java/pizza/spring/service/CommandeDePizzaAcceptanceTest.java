@@ -42,7 +42,7 @@ public class CommandeDePizzaAcceptanceTest {
 		Select pizza = new Select(webDriver.findElement(By.id("pizzaId")));
 		pizza.selectByIndex(3);
 		
-		//Find the nom, and telephone and fill them, then click on the commander button
+		//Find the nom, and telephone field and fill them, then click on the commander button
 		WebElement nameInput = webDriver.findElement(By.id("nom"));
 		WebElement telephoneInput = webDriver.findElement(By.id("telephone"));
 		WebElement commandButton = webDriver.findElement(By.xpath("//button[contains(text(),'Commander')]"));
@@ -51,8 +51,47 @@ public class CommandeDePizzaAcceptanceTest {
 		commandButton.click();
 	}
 
-//	@Test
-//	public void anErrorMessageIsDisplayedWhenNoPizzaIsSelectionedInDuringTheOrder() throws Exception {
-//		webDriver.navigate().to("http://localhost:8080/pizza-spring/");
-//	}
+	@Test
+	public void anErrorMessageIsDisplayedWhenNoPizzaIsSelectionedInDuringTheOrder() throws Exception {
+		//Access the website to be tested
+		webDriver.navigate().to("http://localhost:8080/pizza-spring/");
+		
+		//Find the right element from the navbar and click on it
+		List<WebElement> navbarLinks = webDriver.findElements(By.id("menu"));
+		for (WebElement x : navbarLinks) {
+			if(webDriver.findElement(By.xpath("//a[contains(text(), 'Commander')]")).isDisplayed()) {
+				x.click();
+			}
+		}
+		
+		//Find the nom, and telephone field and fill them, then click on the commander button
+		WebElement nameInput = webDriver.findElement(By.id("nom"));
+		WebElement telephoneInput = webDriver.findElement(By.id("telephone"));
+		WebElement commandButton = webDriver.findElement(By.xpath("//button[contains(text(),'Commander')]"));
+		nameInput.sendKeys("Test java 2");
+		telephoneInput.sendKeys("06060606");
+		commandButton.click();
+	}
+	
+	@Test
+	public void anErrorMessageIsDisplayedWhenNoTelephoneNumberIsEntered() throws Exception {
+		//Access the website to be tested
+		webDriver.navigate().to("http://localhost:8080/pizza-spring/");
+		
+		//Find the right element from the navbar and click on it
+		List<WebElement> navbarLinks = webDriver.findElements(By.id("menu"));
+		for (WebElement x : navbarLinks) {
+			if(webDriver.findElement(By.xpath("//a[contains(text(), 'Commander')]")).isDisplayed()) {
+				x.click();
+			}
+		}
+		
+		//Find the nom, and telephone field and fill them, then click on the commander button
+		WebElement nameInput = webDriver.findElement(By.id("nom"));
+		WebElement telephoneInput = webDriver.findElement(By.id("telephone"));
+		WebElement commandButton = webDriver.findElement(By.xpath("//button[contains(text(),'Commander')]"));
+		nameInput.sendKeys("Test java 3");
+		telephoneInput.sendKeys("06060606");
+		commandButton.click();
+	}
 }
