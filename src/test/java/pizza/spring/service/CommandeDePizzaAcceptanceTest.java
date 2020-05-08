@@ -1,5 +1,6 @@
 package pizza.spring.service;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.junit.After;
@@ -9,7 +10,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CommandeDePizzaAcceptanceTest {
 
@@ -35,6 +38,7 @@ public class CommandeDePizzaAcceptanceTest {
 		for (WebElement x : navbarLinks) {
 			if(webDriver.findElement(By.xpath("//a[contains(text(), 'Commander')]")).isDisplayed()) {
 				x.click();
+				webDriver.navigate().to("http://localhost:8080/pizza-spring/commande");
 			}
 		}
 		
@@ -49,6 +53,7 @@ public class CommandeDePizzaAcceptanceTest {
 		nameInput.sendKeys("Test java 1");
 		telephoneInput.sendKeys("06060606");
 		commandButton.click();
+		
 	}
 
 	@Test
@@ -61,6 +66,7 @@ public class CommandeDePizzaAcceptanceTest {
 		for (WebElement x : navbarLinks) {
 			if(webDriver.findElement(By.xpath("//a[contains(text(), 'Commander')]")).isDisplayed()) {
 				x.click();
+				webDriver.navigate().to("http://localhost:8080/pizza-spring/commande");
 			}
 		}
 		
@@ -83,6 +89,7 @@ public class CommandeDePizzaAcceptanceTest {
 		for (WebElement x : navbarLinks) {
 			if(webDriver.findElement(By.xpath("//a[contains(text(), 'Commander')]")).isDisplayed()) {
 				x.click();
+				webDriver.navigate().to("http://localhost:8080/pizza-spring/commande");
 			}
 		}
 		
