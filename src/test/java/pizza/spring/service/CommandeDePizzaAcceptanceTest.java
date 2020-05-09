@@ -92,6 +92,7 @@ public class CommandeDePizzaAcceptanceTest {
 		//Find an element from the SELECT menu and select it
 		Select pizza = new Select(webDriver.findElement(By.id("pizzaId")));
 		pizza.selectByIndex(0);
+		
 		//Find the nom, and telephone field and fill them, then click on the commander button
 		WebElement nameInput = webDriver.findElement(By.id("nom"));
 		WebElement telephoneInput = webDriver.findElement(By.id("telephone"));
