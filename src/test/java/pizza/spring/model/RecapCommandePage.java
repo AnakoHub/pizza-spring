@@ -1,5 +1,13 @@
 package pizza.spring.model;
 
-public class RecapCommandePage {
+import org.openqa.selenium.WebDriver;
 
+public class RecapCommandePage {
+	
+	private WebDriver webDriver;
+	
+	public RecapCommandePage(WebDriver webDriver) {
+		this.webDriver = webDriver;
+	}
+	
 }
