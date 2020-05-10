@@ -10,8 +10,13 @@ public class RecapCommandePage {
 	public RecapCommandePage(WebDriver webDriver) {
 		this.webDriver = webDriver;
 	}
-
-	public boolean isLinkPresent(String link) {
-		return webDriver.getCurrentUrl().contains(link);
+	
+	/**
+	 * Verification de la présence d'un élément dans le lien
+	 * @param element à verifier dans le lien
+	 * @return Boolean indiquant si l'élément est présent dans le lien
+	 */
+	public boolean isLinkPresent(String element) {
+		return webDriver.getCurrentUrl().contains(element);
 	}
 }

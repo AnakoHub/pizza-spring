@@ -56,6 +56,11 @@ public class CommandePage {
 		return new RecapCommandePage(webDriver);
 	}
 	
+	/**
+	 * Verification de la présence d'un élément dans la page
+	 * @param element à verifier dans la page
+	 * @return Boolean indiquant si l'élément est présent dans la page
+	 */
 	public boolean isElementPresent(String element) {
 		return webDriver.findElement(By.id(element)).isDisplayed();
 	}

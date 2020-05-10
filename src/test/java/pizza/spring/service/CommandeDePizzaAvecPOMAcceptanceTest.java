@@ -28,7 +28,7 @@ public class CommandeDePizzaAvecPOMAcceptanceTest {
 	@Test
 	public void anOrderIsPlacedForAPizzaWhenTheFormIsCompletelyFilledIn() throws Exception {
 		 CommandePage commandePage= HomePage.openWith(webDriver)
-				 						   .clickOnNavCommande();
+				 						    .clickOnNavCommande();
 		 
 		 RecapCommandePage recapCommandePage = commandePage.selectPizza(0)
 				 										   .enterName("Test POM 1")
@@ -53,7 +53,7 @@ public class CommandeDePizzaAvecPOMAcceptanceTest {
 	@Test
 	public void anErrorMessageIsDisplayedWhenNoTelephoneNumberIsEntered() throws Exception {
 		CommandePage commandePage= HomePage.openWith(webDriver)
-				.clickOnNavCommande();
+										   .clickOnNavCommande();
 		
 		RecapCommandePage recapCommandePage = commandePage.selectPizza(0)
 													      .enterName("Test POM 1")
