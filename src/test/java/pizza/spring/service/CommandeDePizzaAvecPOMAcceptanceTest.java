@@ -1,10 +1,16 @@
 package pizza.spring.service;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import pizza.spring.model.CommandePage;
+import pizza.spring.model.HomePage;
+import pizza.spring.model.RecapCommandePage;
 
 public class CommandeDePizzaAvecPOMAcceptanceTest {
 	private WebDriver webDriver;
@@ -21,6 +27,14 @@ public class CommandeDePizzaAvecPOMAcceptanceTest {
 	
 	@Test
 	public void anOrderIsPlacedForAPizzaWhenTheFormIsFilledIn() throws Exception {
-		
+		 CommandePage commandePage= HomePage.openWith(webDriver)
+				 						   .clickOnNavCommande();
+		 
+		 RecapCommandePage recapCommandePage = commandePage.selectPizza(0)
+				 										   .enterName("Test POM 1")
+				 										   .enterTelephone("07070707")
+				 										   .clickOnCommande();
+
+		assertTrue(recapCommandePage.isLinkPresent("/pizza-spring/recap-commande"));
 	}
 }

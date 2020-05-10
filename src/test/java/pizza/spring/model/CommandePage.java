@@ -3,6 +3,7 @@ package pizza.spring.model;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class CommandePage {
 	
@@ -10,6 +11,17 @@ public class CommandePage {
 	
 	public CommandePage(WebDriver webDriver) {
 		this.webDriver = webDriver;
+	}
+	
+	/**
+	 * Selection de la pizza selon son index dans la liste
+	 * @param index de la pizza dans la liste
+	 * @return La page avec la pizza selectionné
+	 */
+	public CommandePage selectPizza(int index) {
+		Select pizza = new Select(webDriver.findElement(By.id("pizzaId")));
+		pizza.selectByIndex(index);
+		return this;
 	}
 	
 	/**
@@ -22,6 +34,17 @@ public class CommandePage {
 	    nameInput.sendKeys(String.join(" ", words));
 	    return this;
 	  }
+	
+	/**
+	 * Envoie du numéor de telephone entrée dans le formulaire
+	 * @param words Numéro de téléphone entré
+	 * @return La page avec le numéro entrés dans le formulaire
+	 */
+	public CommandePage enterTelephone(String... words) {
+		WebElement nameInput = webDriver.findElement(By.id("telephone"));
+		nameInput.sendKeys(String.join(" ", words));
+		return this;
+	}
 	
 	/**
 	 * Clique sur le bouton de commande du formulaire
