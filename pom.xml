@@ -59,8 +59,8 @@
 				<version>2.0</version>
 				<executions>
 					<execution>
-						<id>validate_package</id>
-						<phase>package</phase>
+						<id>deploy_package</id>
+						<phase>pre-integration-test</phase>
 						<goals>
 							<goal>deploy</goal>
 						</goals>
@@ -70,6 +70,13 @@
 							<password>azerty</password>
 							<update>true</update>
 						</configuration>
+					</execution>
+					<execution>
+						<id>run_package</id>
+						<phase>integration-test</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
 					</execution>
 				</executions>
 			</plugin>
