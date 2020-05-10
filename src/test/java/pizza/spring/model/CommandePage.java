@@ -55,4 +55,8 @@ public class CommandePage {
 		searchButton.click();
 		return new RecapCommandePage(webDriver);
 	}
+	
+	public boolean isElementPresent(String element) {
+		return webDriver.findElement(By.id(element)).isDisplayed();
+	}
 }

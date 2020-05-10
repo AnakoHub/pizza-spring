@@ -26,7 +26,7 @@ public class CommandeDePizzaAvecPOMAcceptanceTest {
 	}
 	
 	@Test
-	public void anOrderIsPlacedForAPizzaWhenTheFormIsFilledIn() throws Exception {
+	public void anOrderIsPlacedForAPizzaWhenTheFormIsCompletelyFilledIn() throws Exception {
 		 CommandePage commandePage= HomePage.openWith(webDriver)
 				 						   .clickOnNavCommande();
 		 
@@ -36,5 +36,29 @@ public class CommandeDePizzaAvecPOMAcceptanceTest {
 				 										   .clickOnCommande();
 
 		assertTrue(recapCommandePage.isLinkPresent("/pizza-spring/recap-commande"));
+	}
+	
+	@Test
+	public void anErrorMessageIsDisplayedWhenNoPizzaIsSelectionedInDuringTheOrder() throws Exception {
+		CommandePage commandePage= HomePage.openWith(webDriver)
+				   						   .clickOnNavCommande();
+		
+		 RecapCommandePage recapCommandePage = commandePage.enterName("Test POM 1")
+														   .enterTelephone("07070707")
+														   .clickOnCommande();
+		
+		 assertTrue(commandePage.isElementPresent("pizzaId.errors"));
+	}
+	
+	@Test
+	public void anErrorMessageIsDisplayedWhenNoTelephoneNumberIsEntered() throws Exception {
+		CommandePage commandePage= HomePage.openWith(webDriver)
+				.clickOnNavCommande();
+		
+		RecapCommandePage recapCommandePage = commandePage.selectPizza(0)
+													      .enterName("Test POM 1")
+													      .clickOnCommande();
+		
+		assertTrue(commandePage.isElementPresent("telephone.errors"));
 	}
 }

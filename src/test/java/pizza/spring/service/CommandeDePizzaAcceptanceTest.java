@@ -31,7 +31,7 @@ public class CommandeDePizzaAcceptanceTest {
 	}
 
 	@Test
-	public void anOrderIsPlacedForAPizzaWhenTheFormIsFilledIn() throws Exception {
+	public void anOrderIsPlacedForAPizzaWhenTheFormIsCompletelyFilledIn() throws Exception {
 		//Access the website to be tested
 		webDriver.navigate().to("http://localhost:8080/pizza-spring/");
 		
