@@ -20,14 +20,17 @@ public class HomePage {
 	 */
 	public HomePage open() {
 		webDriver.navigate().to("http://localhost:8080/pizza-spring/");
+		
 		assertTrue("Titre de page inattendu " + webDriver.getTitle(),
 	               webDriver.getTitle().startsWith("Pizza Spring"));
+		
 	    return this;
 	}
 	
 	public static HomePage openWith(WebDriver webDriver) {
 		HomePage homePage = new HomePage(webDriver);
 		homePage.open();
+		
 		return homePage;
 	}
 	

@@ -21,6 +21,7 @@ public class CommandePage {
 	public CommandePage selectPizza(int index) {
 		Select pizza = new Select(webDriver.findElement(By.id("pizzaId")));
 		pizza.selectByIndex(index);
+		
 		return this;
 	}
 	
@@ -32,6 +33,7 @@ public class CommandePage {
 	public CommandePage enterName(String... words) {
 	    WebElement nameInput = webDriver.findElement(By.id("nom"));
 	    nameInput.sendKeys(String.join(" ", words));
+	    
 	    return this;
 	  }
 	
@@ -43,6 +45,7 @@ public class CommandePage {
 	public CommandePage enterTelephone(String... words) {
 		WebElement nameInput = webDriver.findElement(By.id("telephone"));
 		nameInput.sendKeys(String.join(" ", words));
+		
 		return this;
 	}
 	
@@ -53,6 +56,7 @@ public class CommandePage {
 	public RecapCommandePage clickOnCommande() {
 		WebElement searchButton = webDriver.findElement(By.xpath("//button[contains(text(),'Commander')]"));
 		searchButton.click();
+		
 		return new RecapCommandePage(webDriver);
 	}
 	
